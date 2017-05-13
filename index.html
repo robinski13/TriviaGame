@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Trivia</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  
+ <div class = "grid">
+ 	<div id = "quiz">
+ 		<h1>Trivia game</h1>
+
+ 		<p id = "questions"></p>
+ 		<p id = "correct"></p>
+ 		<p id = "incorrect"></p>
+ 		<p id = "unanswered"></p>
+
+
+
+ 		<div id = question1>What is the color of the ocean </div>
+
+ 		<div class = "buttons">
+
+ 			<button id = "btn0"><span id ="choice0">red</span></button>
+			<button id = "btn1"><span id ="choice1">blue</span></button>
+			<button id = "btn2"><span id ="choice2">green</span></button>
+			<button id = "btn3"><span id ="choice3">white</span></button>
+
+  </div>
+
+
+
+
+  <script>
+
+  		$('#correct').fadeOut();
+  		$('#incorrect').fadeOut();
+  		$('#unanswered').fadeOut();
+
+
+  var correct = 0;
+  var incorrect = 0;
+  var unanswered = 0;
+
+$( document ).ready(function() {
+
+	var options = ['btn0','btn1', 'btn2', 'btn3'];
+
+
+
+$('#btn0').click(function() {
+    $('#btn0').css('background-color', 'grey');
+    
+    $('#btn1').click(function(){
+    	$('#btn0').css('background-color', 'white');
+    });
+
+    $('#btn2').click(function(){
+    	$('#btn0').css('background-color', 'white');
+    });
+
+    $('#btn3').click(function(){
+    	$('#btn0').css('background-color', 'white');
+    });
+});
+
+$('#btn1').click(function() {
+    $('#btn1').css('background-color', 'grey');
+
+     $('#btn0').click(function(){
+    	$('#btn1').css('background-color', 'white');
+    });
+
+    $('#btn2').click(function(){
+    	$('#btn1').css('background-color', 'white');
+    });
+
+    $('#btn3').click(function(){
+    	$('#btn1').css('background-color', 'white');
+    });
+});
+
+
+
+$('#btn2').click(function() {
+    $('#btn2').css('background-color', 'grey');
+
+     $('#btn0').click(function(){
+    	$('#btn2').css('background-color', 'white');
+    });
+
+    $('#btn1').click(function(){
+    	$('#btn2').css('background-color', 'white');
+    });
+
+    $('#btn3').click(function(){
+    	$('#btn2').css('background-color', 'white');
+    });
+});
+
+$('#btn3').click(function() {
+    $('#btn3').css('background-color', 'grey');
+
+     $('#btn0').click(function(){
+    	$('#btn3').css('background-color', 'white');
+    });
+
+    $('#btn1').click(function(){
+    	$('#btn3').css('background-color', 'white');
+    });
+
+    $('#btn2').click(function(){
+    	$('#btn3').css('background-color', 'white');
+    });
+});
+
+var hasBeenClicked = false;
+$('#btn1').click(function () {
+    hasBeenClicked === true;
+    $('#correct').text("you got the question right!!!");
+});
+
+var bt0click = false;
+$('#btn0').click(function () {
+    bt0click === true;
+    $('#correct').text("You got the question wrong");
+});
+
+
+var bt2click = false;
+$('#btn2').click(function () {
+    bt2click === true;
+    $('#correct').text("You got the question wrong");
+});
+
+
+var bt3click = false;
+$('#btn3').click(function () {
+    bt3click === true;
+    $('#correct').text("You got the question wrong");
+});
+
+
+
+});
+
+
+  function countdown (secs, elem){
+  	var element = document.getElementById(elem);
+  	element.innerHTML = "wait for " + secs + "seconds";
+  	if (secs < 1) {
+  		clearTimeout(timer);
+  		element.innerHTML = '<h1>Complete</h1>';
+  		$('.buttons').fadeOut();
+  		$('#question1').fadeOut();
+  		$('#correct').fadeIn();
+  		$('#incorrect').fadeIn();
+  		$('#unanswered').fadeIn();
+  	}
+
+  	secs--;
+  	var timer = setTimeout('countdown('+secs+',"'+elem+'")',1000);
+  }
+
+
+  </script>
+
+  <div id = "status"> </div>
+
+  <script>
+	countdown(10, "status");
+  </script>
+
+  </body>
+
+  </html>
+
+
+
+
+
+  
